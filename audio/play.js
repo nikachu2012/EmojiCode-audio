@@ -11,7 +11,3 @@ emojiau.playNoteSecond = (note, second) => {
     synth.triggerAttackRelease(note, now + second)
 }
 
-emojiau.stopSound = () => {
-    Tone.Transport.stop();
-    Tone.Transport.cancel();
-}
