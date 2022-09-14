@@ -1,7 +1,7 @@
 /* 
     EmojiCode Sprite Controller
     Created by nikachu2012(https://github.com/nikachu2012)
-    Create time: Sun Sep 04 2022 19:13:49 GMT+0900 (日本標準時)
+    Create time: Thu Sep 15 2022 00:00:08 GMT+0900 (日本標準時)
 */
 //create a synth and connect it to the main output (your speakers)
 const synth = new Tone.Synth().toDestination();
@@ -20,10 +20,16 @@ emojiau.soundData = {};
 emojiau.soundDetail = {};
 
 emojiau.createSound = (id,url) => {
-    emojiau.soundData[id] = new Tone.Player(url).toDestination();
-    emojiau.soundDetail[id] = {}
-    emojiau.soundDetail[id].id = id;
-    emojiau.soundDetail[id].url = url;
+    if(id !== null){
+        emojiau.soundData[id] = new Tone.Player(url).toDestination();
+        emojiau.soundDetail[id] = {}
+        emojiau.soundDetail[id].id = id;
+        emojiau.soundDetail[id].url = url;
+    }
+    else{
+        console.error('emojiau: IDにnullは使用できません。')
+        alert('IDにnullは使用できません。')
+    }
 }
 
 emojiau.detailAdd = (detail) => {
