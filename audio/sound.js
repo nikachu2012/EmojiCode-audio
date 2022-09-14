@@ -2,16 +2,10 @@ emojiau.soundData = {};
 emojiau.soundDetail = {};
 
 emojiau.createSound = (id,url) => {
-    if(id !== null){
-        emojiau.soundData[id] = new Tone.Player(url).toDestination();
-        emojiau.soundDetail[id] = {}
-        emojiau.soundDetail[id].id = id;
-        emojiau.soundDetail[id].url = url;
-    }
-    else{
-        console.error('emojiau: IDにnullは使用できません。')
-        alert('IDにnullは使用できません。')
-    }
+    emojiau.soundData[id] = new Tone.Player(url).toDestination();
+    emojiau.soundDetail[id] = {}
+    emojiau.soundDetail[id].id = id;
+    emojiau.soundDetail[id].url = url;
 }
 
 emojiau.detailAdd = (detail) => {
