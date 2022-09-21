@@ -8,6 +8,7 @@ emojiau.playNote = (note, duration) => {
 
 emojiau.playNoteSecond = (note, second) => {
     const now = Tone.now()
-    synth.triggerAttackRelease(note, now + second)
+    synth.triggerAttack(note, now)
+    synth.triggerRelease(now + second)
 }
 
