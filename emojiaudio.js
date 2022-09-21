@@ -1,7 +1,7 @@
 /* 
     EmojiCode Sprite Controller
     Created by nikachu2012(https://github.com/nikachu2012)
-    Create time: Sun Sep 04 2022 19:13:49 GMT+0900 (日本標準時)
+    Create time: Thu Sep 22 2022 00:07:54 GMT+0900 (日本標準時)
 */
 //create a synth and connect it to the main output (your speakers)
 const synth = new Tone.Synth().toDestination();
@@ -13,7 +13,8 @@ emojiau.playNote = (note, duration) => {
 
 emojiau.playNoteSecond = (note, second) => {
     const now = Tone.now()
-    synth.triggerAttackRelease(note, now + second)
+    synth.triggerAttack(note, now)
+    synth.triggerRelease(now + second)
 }
 
 emojiau.soundData = {};
